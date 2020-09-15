@@ -1,0 +1,470 @@
+// 主体
+// 轮播菜单栏
+body .top_bar {
+    width: 1200px;
+    
+}
+.top_bar{
+    background-color: #f7f7f7;
+    height: 380px;
+    overflow: hidden;
+    width: 980px;
+    margin: 0 auto;
+    ul{
+        position: relative;
+        height: 360px;
+        width: 700px;
+        z-index: 0;
+        overflow: hidden;
+        margin-left: 245px;
+        margin-top: 20px;
+        background: red;
+    }
+}
+body .top_bar .banner li{
+    padding-left: 0;
+}
+.top_bar .banner li {
+    /* padding-left: 220px; */
+    display: block !important;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.top_bar .banner .pic {
+    height: 360px;
+    display: block;
+    margin: 0 auto;
+}
+// 左侧菜单栏
+body .top_wrap{
+    width: 1200px;
+}
+.top_wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+}
+.top_wrap .top_box {
+    position: relative;
+    width: 100%;
+    height: 0;
+}
+body .top_wrap .banner_l {
+    left: 0;
+}
+.top_wrap .banner_l {
+    position: relative;
+    top: -380px;
+    z-index: 10;
+    width: 210px;
+    display: block;
+    dl {
+        width: 190px;
+        height: 377px;
+        overflow: hidden;
+        padding: 2px 10px 1px;
+        background-color: #fff;
+        .border-none {
+            background: none;
+        }
+        dd{
+            float: left;
+            width: 50%;
+            height: 54px;
+            overflow: hidden;
+            line-height: 53px;
+            text-align: center;
+            background: url(../images/dotted_line.png) repeat-x bottom;
+            a:hover{
+                color:#ff464e;
+                .ct-icon{
+                    background-position-y:-24px;
+                }
+            }
+            a{
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                background: #fff;
+                font-size: 14px;
+                position: relative;
+                .ct-line {
+                    float: right;
+                    width: 1px;
+                    height: 15px;
+                    background-color: #eee;
+                    margin-top: 18px;
+                }
+                .ct-icon{
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    vertical-align: middle;
+                    position: relative;
+                    top: -2px;
+                    background: url(../images/ct_icons.png) no-repeat 0 0;
+                    margin-right: 5px;
+                    
+                }
+                .ct-icon-nvzhuang{
+                    background-position: 0 0;
+                }
+                .ct-icon-nanzhuang{
+                    background-position: -24px 0;
+                }
+                .ct-icon-xiezi{
+                    background-position: -48px 0;
+                }
+                .ct-icon-xiangbao{
+                    background-position: -72px 0;
+                }
+                .ct-icon-muying{
+                    background-position: -96px 0;
+                }
+                .ct-icon-meizhuang{
+                    background-position: -120px 0;
+                }
+                .ct-icon-jujia{
+                    background-position: -144px 0;
+                }
+                .ct-icon-jiafang{
+                    background-position: -168px 0;
+                }
+                .ct-icon-wenti{
+                    background-position: -192px 0;
+                }
+                .ct-icon-meishi{
+                    background-position: -216px 0;
+                }
+                .ct-icon-shuma{
+                    background-position: -240px 0;
+                }
+                .ct-icon-dianqi{
+                    background-position: -264px 0;
+                }
+                .ct-icon-neiyi{
+                    background-position: -288px 0;
+                }
+                .ct-icon-peishi{
+                    background-position: -312px 0;
+                }
+            }
+        }
+    }
+}
+body .top_wrap .banner_r{
+    visibility: visible;
+}
+body .banner_r{
+    display: block;
+}
+.top_wrap .banner_r{
+    // display: none;
+    height: 360px;
+    position: absolute;
+    right: 0;
+    top: -360px;
+    width: 250px;
+    z-index: 10;
+    background: #e8e8e8;
+    box-shadow: 0 -3px 2px rgba(102, 102, 102,.15);
+    overflow: hidden;
+    visibility: hidden;
+    dl {
+        width: 251px;
+        height: 360px;
+        overflow: hidden;
+        background-color: #e2e2e2;
+        .last {
+            width: 250px;
+            height: 120px;
+            img{
+                width: 250px;
+                max-height: 120px;
+            }
+        }
+        dd {
+            float: left;
+            display: inline;
+            width: 124.5px;
+            height: 119px;
+            overflow: hidden;
+            text-align: center;
+            background-color: #fff;
+            margin: 0 1px 1px 0;
+            img {
+                width: 124px;
+                max-height: 119px;
+            }
+        }
+    }
+}
+body .top_wrap .round{
+    margin-right: -100px;
+}
+.top_wrap .round{
+    position: absolute;
+    margin-right: -210px;
+    top: -25px;
+    width: 200px;
+    right: 50%;
+    .adType{
+        text-align: center;
+        a{
+            background: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-block;
+            height: 10px;
+            margin-right: 7px;
+            width: 10px;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        a.current{
+            background: transparent;
+            border: 3px solid #fff;
+        }
+    }
+}
+body .new-users{
+    width: 1200px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    ul.fr{
+        margin-right: 6px;
+    }
+    .update-time{
+        margin-left: 4px;
+    }
+}
+
+.new-users{
+    width: 980px;
+    margin: 30px auto 0px auto;
+    background: #fff;
+    line-height: 60px;
+    ul.fr{
+        margin-right: 15px;
+        li{
+            margin-right: 0;
+            display: inline;
+            float: right;
+            font-size: 12px;
+            font-family: "微软雅黑","宋体";
+            margin-top: 3px;
+            cursor: pointer;
+            span{
+                float: none;
+                color: #ff464e;
+                font-size: 14px;
+                display: inline;
+                float: left;
+            }
+            .icon-arrow{
+                margin-top: -2px;
+                background: url(../images/icon_arrow-new.png) no-repeat left center;
+                width: 9px;
+                height: 10px;
+                display: inline-block;
+                margin-left: 4px;
+                vertical-align: middle;
+            }
+        }
+    }
+    .update-time{
+        height: auto;
+        font-family: "微软雅黑"，"宋体";
+        .today{
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+            span{
+                font-size: 16px;
+                color: #bbb;
+                margin-left: 10px;
+                margin-right: 10px;
+                font-weight: normal;
+            }
+        }
+    }
+}
+body .brand_index{
+    width: 1200px;
+    .brand_list{
+        width: 1180px;
+        ul.brand_date{
+            li{
+                width: 278px;
+                .link-box{
+                    height: 170px;
+                    .brand-pic{
+                        height: 130px;
+                        width: 278px;
+                        overflow: hidden;
+                        img{
+                            width: 278px;
+                        }
+                        .brand_time{
+                            width: 281px;
+                            p{
+                                width: 281px;
+                            }
+                            .brand_time_bg{
+                                width: 281px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.brand_index{
+    width: 980px;
+    margin: 0 auto;
+    .brand_list{
+        background: #fff;
+        padding: 0px 10px 0;
+        height: auto;
+        overflow: hidden;
+        ul.brand_date{
+            li{
+                float: left;
+                display: inline;
+                width: 220px;
+                margin: 0 8px;
+                border-bottom: 1px solid #e8e8e8;
+                .link-box{
+                    background: none repeat scroll 0 0 #fff;
+                    cursor: pointer;
+                    display: block;
+                    overflow: hidden;
+                    position: relative;
+                    text-decoration: none;
+                    height: 162px;
+                    .brand-pic{
+                        display: table-cell;
+                        vertical-align: middle;
+                        width: 220px;
+                        height: 110px;
+                        position: relative;
+                        overflow: hidden;
+                        display: block;
+                        img{
+                            display: block;
+                            margin: 0 auto;
+                            width: 220px;
+                            height: 130px
+                        }
+                        .brand_time{
+                            width: 220px;
+                            height: 22px;
+                            position: absolute;
+                            bottom: 0px;
+                            left: 0px;
+                            line-height: 22px;
+                            p{
+                                text-align: center;
+                                line-height: 22px;
+                                width: 220px;
+                                color: #fff;
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                z-index: 2;
+                                .icon_time{
+                                    display: inline-block;
+                                    background: url(../images/clock.png) no-repeat;
+                                    width: 14px;
+                                    height: 14px;
+                                    margin-right: 8px;
+                                    background-size: 100% 100%;
+                                    vertical-align: top;
+                                    margin-top: 4px;
+                                }
+                            }
+                            .brand_time_bg{
+                                height: 22px;
+                                width: 100%;
+                                background: #000;
+                                opacity: 0.5;
+                                filter: alpha(opacity=50);
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                z-index: 1;
+                            }
+                        }
+                    }
+                }
+                .card{
+                    height: 40px;
+                    line-height: 20px;
+                    bottom: 0;
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #fafafa;
+                    .discount {
+                        width: 68px;
+                        height: 26px;
+                        line-height: 26px;
+                        text-align: center;
+                        color: #ff464e;
+                        float: right;
+                        font-size: 14px;
+                        margin: 6px 10px 0 0;
+                    }
+                    .title {
+                        color: #000;
+                        float: left;
+                        margin: 10px 0 0 10px;
+                        font-family: "微软雅黑";
+                        color: #333;
+                    }
+                }
+            }
+        }
+        ul.brand_logo{
+            margin:20px 0;
+            li{
+                width: 100px;
+                font-size: 14px;
+                line-height: 35px;
+                height: 35px;
+                float: left;
+                margin: 0 10px;
+                img{
+                    height: 35px;
+                }
+                
+            }
+            li.last a{
+                color: #ff464e;
+                font-size: 14px;
+                .see_more_brand_1{
+                    background: url(../images/icon_arrow-new.png) no-repeat left center;
+                    width: 9px;
+                    height: 10px;
+                    display: inline-block;
+                    margin-top: 1px;
+                }
+            }
+        }
+    }
+}
+.new-users .update-desc {
+    float: right;
+    margin-right: 2px;
+}
+// 左侧菜单栏
+// 轮播菜单栏
+// 主体

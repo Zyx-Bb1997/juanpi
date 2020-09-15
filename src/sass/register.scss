@@ -1,0 +1,69 @@
+.login-center{
+    padding: 30px 80px 0 80px;
+    width: 818px;
+    height: auto;
+    overflow: hidden;
+    .content-landing {
+        width: 450px;
+        ul {
+            clear: both;
+            li{
+                .error-box {
+                    margin-left: 10px;
+                    width: 16px;
+                    height: 16px;
+                    margin-top: 10px;
+                    color: #666;
+                    float: left;
+                    overflow: hidden;
+                    strong {
+                        width: 16px;
+                        height: 16px;
+                        background: url(../images/login/login.gif) no-repeat;
+                        display: inline-block;
+                        margin-right: 3px;
+                    }
+                }
+                .otherregister {
+                    height: 40px;
+                    line-height: 40px;
+                    padding-left: 6px;
+                    display: inline-block;
+                    margin-top: -2px;
+                    a {
+                        color: #0289cd;
+                    }
+                }
+            }
+        }
+    }
+}
+.login-center .content-landing li.error_box .normal-input {
+    border: 1px solid #ff464e;
+}
+.main .login-main .login-center .content-landing ul li input.normal-input {
+    color: #666;
+    padding: 12px 0 12px 10px;
+    border: 1px solid #c6c6c6;
+    height: 14px;
+    line-height: 14px;
+    width: 250px;
+    float: left;
+}
+.login-center .content-landing li input {
+    border: none;
+}
+.mr10 {
+    margin-right: 10px!important;
+}
+.login-l-img .line {
+    height: 1px;
+    width: 290px;
+    margin: 20px 0 15px;
+    border-top: #e2e2e2 solid 1px;
+    border-bottom: #e2e2e2 solid 1px;
+    float: right;
+}
+.third-login .union-login {
+    margin-left: 80px;
+}

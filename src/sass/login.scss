@@ -1,0 +1,319 @@
+body{
+    min-height: auto;
+}
+// 顶部
+.header-login{
+    border-bottom: 4px solid #ff464e;
+    .area{
+        height: 76px;
+    }
+    .logo{
+        top: 15px;
+    }
+    div.protection {
+        right: 10px;
+        top: 24px;
+    }
+    
+}
+body .header .area{
+    width: 980px;
+}
+.header{
+    background: #fff;
+    .area{
+        position: relative;
+        width: 980px;
+        margin: 0 auto;
+    }
+    .logo{
+        top: 17px;
+        left: 0;
+        width: 210px;
+        height: 56px;
+        background-position: -78px -217px;
+        .juan-logo{
+            height: 0;
+            overflow: hidden;
+            padding-top: 46px;
+            width: 88px;
+        }
+    }
+    .logo,.search,.protection{
+        position: absolute;
+    }
+    .protection {
+        background-position: 0 0;
+        height: 33px;
+        width: 465px;
+        top: 28px;
+        right: 270px;
+        a {
+            display: block;
+            float: left;
+            height: 16px;
+            width: 98px;
+            margin: 0 0px 0 34px;
+        }
+    }
+}
+// 顶部
+// 主体
+.main{
+    width: 980px;
+    margin: 0 auto;
+    .login-main{
+        width: 980px;
+        margin: 20px auto 0;
+        .login-content{
+            width: 978px;
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            border: 1px solid #e2e2e2;
+            padding-bottom: 50px;
+            .title{
+                width: 878px;
+                padding: 20px 50px;
+                border-bottom: #e2e2e2 solid 1px;
+                overflow: hidden;
+                span.hd{
+                    color: #ff464e;
+                    font-size: 16px;
+                    font-family: "微软雅黑","宋体";
+                    margin-right: 10px;
+                    background: url(../images/hd-bg.gif) no-repeat center right;
+                    padding-right: 20px;
+                    float: left;
+                }
+                span.tips{
+                    color: #666;
+                    float: left;
+                    margin-top: 3px;
+                }
+            }
+        }
+        .other{
+            float: right;
+            font-size: 14px;
+            color: #999;
+            a{
+                color: #0289cd;
+            }
+        }
+        .login-center{
+            padding: 30px 80px 0 80px;
+            width: 818px;
+            height: auto;
+            overflow: hidden;
+            .content-landing{
+                width: 450px;
+                ul{
+                    clear: both;
+                    li{
+                        padding-bottom: 25px;
+                        overflow: visible;
+                        height: auto;
+                        position: relative;
+                        height: 45px;
+                        *height: 45px;
+                        _height: 45px;
+                        clear: both;
+                        label.normal{
+                            width: 80px;
+                            text-align: right;
+                            float: left;
+                            display: inline;
+                            height: 20px;
+                            margin-top: 8px;
+                            font-size: 14px;
+                        }
+                        .box_border{
+                            border: 1px solid #c6c6c6;
+                            width: 270px;
+                            float: left;
+                        }
+                        .normal-input{
+                            border: 0;
+                            width: 226px;
+                            padding: 12px 0 12px 5px;
+                            
+                        }
+                    }
+                    .user_img{
+                        background: url(../images/name2.jpg) no-repeat #f1f1f1;
+                        width: 39px;
+                        height: 38px;
+                        float: left;
+                    }
+                }
+                li{
+                    .normal-input {
+                        color: #666;
+                        padding: 12px 0 12px 10px;
+                        border: 1px solid #c6c6c6;
+                        height: 14px;
+                        line-height: 14px;
+                        width: 250px;
+                        float: left;
+                    }
+                    .error-box {
+                        margin-left: 10px;
+                        width: 16px;
+                        height: 16px;
+                        margin-top: 10px;
+                        color: #666;
+                        float: left;
+                        overflow: hidden;
+                    }
+                    .verification-code {
+                        width: 110px;
+                        float: left;
+                        margin-left: 10px;
+                        height: 40px;
+                    }
+                    .phone-verify {
+                        display: block;
+                        background: #e2e2e2;
+                        width: 110px;
+                        height: 40px;
+                        text-align: center;
+                        line-height: 40px;
+                        color: #666;
+                        cursor: pointer;
+                    }
+                    .chex {
+                        width: 280px;
+                        float: left;
+                        span {
+                            color: #5e5e5e;
+                            float: left;
+                        }
+                        .ck {
+                            vertical-align: -2px;
+                            margin-right: 5px;
+                        }
+                        .forget {
+                            float: right;
+                            color: #999;
+                        }
+                    }
+                    .btn {
+                        float: left;
+                        width: 260px;
+                        .smt-o {
+                            background-position: 0 0;
+                            color: #fff;
+                        }
+                        .sub {
+                            width: 260px;
+                            height: 40px;
+                            cursor: pointer;
+                            font-size: 16px;
+                            border-radius: 2px;
+                        }
+                    }
+                    input {
+                        border: none;
+                    }
+                }
+                .chex-d {
+                    padding-bottom: 8px;
+                    height: 20px;
+                }
+                .code_img {
+                    background: url(../images/code2.jpg) no-repeat #f1f1f1;
+                    width: 39px;
+                    height: 38px;
+                    float: left;
+                }
+                li#verify_display .normal-input {
+                    border: 1px solid #c6c6c6;
+                    width: 138px;
+                    padding: 12px 0 12px 10px;
+                }
+            }
+            .third-login {
+                text-align: left;
+                .union-login {
+                    float: left;
+                    width: 142px;
+                    .union-title {
+                        height: 16px;
+                        line-height: 16px;
+                        position: relative;
+                        span {
+                            color: #333;
+                        }
+                    }
+                }
+                .third-box {
+                    margin-top: 10px;
+                    a {
+                        display: block;
+                        float: left;
+                        width: 22px;
+                        height: 22px;
+                        margin-right: 7px;
+                        display: inline;
+                    }
+                    .weixin {
+                        background-position: -236px -194px;
+                    }
+                    .sina {
+                        background-position: -27px -169px;
+                    }
+                    .taobao {
+                        background-position: -27px -140px;
+                    }
+                }
+                .quick {
+                    margin: 14px 0 0 0;
+                    font-size: 14px;
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+.login-center .content-landing .login_list li.active .box_border, .login-center .content-landing .login_list li.active.error_box .box_border {
+    border: 1px solid #666;
+}
+.dele_info_img {
+    position: absolute;
+    top: 14px;
+    right: 108px;
+    width: 13px;
+    height: 13px;
+    background: url(../images/de_info.gif) no-repeat;
+    cursor: pointer;
+    display: none;
+}
+.dele_info_img2 {
+    right: 229px;
+}
+.login-center .content-landing li .btn .sub, .login-center .content-landing li .btn .smt-r, .login-center .third-box a, .success-content .result .user {
+    background: url(../images/new-login.gif) no-repeat;
+}
+.icons.icons-phone-other {
+    width: 12px;
+    height: 22px;
+    background-position: right -249px;
+    margin: 0 5px 0 0;
+}
+.icons {
+    background: url(../images/icons-total.gif) no-repeat;
+    display: block;
+}
+.login-l-img {
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    width: 358px!important;
+    text-align: right;
+}
+.foot-tips {
+    text-align: center;
+    margin: 40px auto 40px;
+    width: 900px;
+}
+// 主体
