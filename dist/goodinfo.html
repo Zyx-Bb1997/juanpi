@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情页</title>
+    <link rel="stylesheet" href="./css/public.min.css">
+    <link rel="stylesheet" href="./css/goodinfo.min.css">
+    <script src="./js/jquery.cookie.min.js"></script>
+    <script src="./js/jquery-1.12.4.min.min.js"></script>
+    <script src="./js/requestAnimationFrame.min.js"></script>
+</head>
+<body>
+<!-- 注册登录栏 -->
+<div id="toolbar">
+    <div class="tool-con">
+        <div class="right-show fr">
+            <div class="login-show">
+                <a href="">登录</a>
+                <a id="nav-reg" href="">免费注册</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="">我的订单</a>
+                <a href="">商家入驻</a>
+            </div>
+            <div class="bag-show">
+                <a href="" class="bar-a">
+                <span class="icon-normal icon-bag fl"></span>
+                <span class="empty fl">
+                    <span class="fl">购物袋</span>
+                    <em class="num cartnum">1</em>
+                </span>
+                
+                </a>
+            </div>
+            <div class="other-show other-show01">
+                <a href="">商家中心</a>
+            </div>
+            <div class="other-show other-show01">
+                <a href="">客户服务</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 注册登录栏 -->
+<!-- 头部菜单栏 -->
+<div class="header clear">
+    <!-- logo 搜索栏 -->
+    <div class="area">
+        <a href="" class="juan-logo fl" title="卷皮首页">
+            <div class="logo logo1">
+                <div class="fl">
+                    <span class="juan-txt fl"></span>
+                </div>
+            </div>
+        </a>
+        <div class="protection">
+            <a href="" title="每天十点开抢" class="update" target="_blank" rel="nofollow"></a>
+            <a href="" title="职业买手砍价" class="lowest" target="_blank" rel="nofollow"></a>
+            <a href="" title="商品验货质检" class="check1" target="_blank" rel="nofollow"></a>
+        </div>
+        <div class="search">
+            <span class="search-area fl">
+                <input type="text" name="keywords" id="keywords" class="txt" value="请输入想找的宝贝" title="请输入想找的宝贝">
+            </span>
+            <input type="submit" value class="smt fr">
+            <input type="hidden" name="search_action" id="search_action" value="">
+            <input type="hidden" name="search_from" id="search_from" value="1">
+        </div>
+        
+    </div>
+        <!-- logo 搜索栏 -->
+        <!-- banner 菜单栏 -->
+        <div class="mainNav">
+             <div class="nav">
+                <ul class="navigation fl">
+                    <li class="current" channel="1">
+                        <a href="" target="_blank">首页</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">品牌折扣</a>
+                    </li>
+                    <li channel="7">
+                        <a href="" target="_blank">9.9包邮</a>
+                    </li>
+                    <li class="last">
+                        <a href="" target="_blank">即将上线</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank" id="show-qcodes">
+                            <em class="icon-normal icon-phone" id="new-phone"></em>
+                            手机版
+                        </a>
+                        <div id="new-qcodes" class="code-tips">
+                            <div class="code-box">
+                                <p class="code"></p>
+                                <p class="txt" style="text-align:center;font-size: 14px">随时逛，及时抢</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+    
+    <!-- banner 菜单栏 -->
+    </div>
+    <script type="text/javascript">
+        $("#show-qcodes").hover(function(){
+            $("#new-qcodes").css('display','block');
+        },function(){
+            $("#new-qcodes").css('display','none');
+        })
+
+    </script>
+</div>
+<!-- 头部菜单栏 -->
+<!-- 主体 -->
+<div class="cart-flyinto" id="J-mini-cart">
+    <img src="" alt="" style="height:40px!important;">
+</div>
+<div class="main pr mt20 clear">
+    <div class="mall_item_info">
+        <div class="place-show">
+            <div class="place-explain fl">
+                <a href="" class="tab-links">首页</a>
+                <em class="tab_arrow"></em>
+                <a href="" class="body-xx-seo tab-links">交叉绑带凉鞋女2020夏</a>
+            </div>
+        </div>
+        <div class="goods_show clear" >
+            <div class="deal-pic">
+                <ul>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./images/5efae48933b08902745f14e9_800x800.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./images/5efae4e4b6f8ea77565c7676_800x800.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./images/5efae4e6b6f8ea779d763b95_800x800.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./images/5efae4e6b6f8ea779d763b95_800x800.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="cur">
+                        <a href="javascript:;">
+                            <img src="./images/5efae4e6b6f8ea779d763b95_800x800.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="mr0">
+                        <a href="javascript:;">
+                            <img src="./images/5efae4e6b6f8ea779d763b95_800x800.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <div class="pic">
+                    <img src="./images/5efae4e333b0897df14d0379_800x800 (1).jpg" alt="">
+                </div>
+                <div class="sale_ad_info_txt clear">
+                    <span class="sale_text_wrapper">
+                        <span class="sale_ad_txt sale_ad_info_zl">100%人工质检</span>
+                        <span class="sale_ad_txt sale_ad_info_price">全国包邮低价保障</span>
+                        <span class="sale_ad_txt sale_ad_info_reason">7天无理由退货</span>
+                    </span>
+                </div>
+                <div class="sector-other clear">
+                        <div class="collect">
+                            <a href="javascript:voId(0)">
+                                <i></i>
+                                收藏
+                            </a>
+                        </div>
+                        <div class="share-box">
+                            <a href="javascript:voId(0)">
+                                <i></i>
+                                分享
+                            </a>
+                            <div class="share" style="display: none;">
+                                <div class="bdsharebuttonbox bdshare-button-style0-16" data-tag="share_1" data-bd-bind="1600174462271">
+                                    <a href="#" data-cmd="qzone" title="分享到QQ空间" class="bds_qzone"></a>
+                                    <a href="#" data-cmd="tsina" title="分享到QQ空间" class="bds_tsina"></a>
+                                    <a href="#" data-cmd="tqq" title="分享到QQ空间" class="bds_tqq"></a>
+                                </div>
+                                <script>
+                                    var s_title = {'title':'交叉绑带凉鞋女2020夏', 'desc':'我在卷皮上发现的折扣特卖商品，速去抢购！'};
+                                    window._bd_share_config = {
+                                            common : {
+                                                bdText : s_title.title,     
+                                                bdDesc : s_title.desc,
+                                                bdUrl : location.href,
+                                                bdPic : $(".goods_show figure img").attr("src")
+                                            },
+                                            share : [{
+                                                "bdSize" : 16
+                                            }]
+                                        };
+                                </script>
+                            </div>
+                        </div>
+                        <div style="margin-left:60px;">
+                            <a title="交叉绑带凉鞋女2020夏" re="147252408" onclick="XD.JUBAO(this)" href="javascript:;" class="report">举报</a>
+                        </div>
+                </div>
+            </div>
+            <div class="deal-wrap">
+                <h1>
+                    
+            交叉绑带凉鞋女2020春夏新款百搭细跟少女性感露趾仙女罗        
+                </h1>
+                <div class="sector-info">
+                    <div class="J-basic">
+                        <div class="d-info">
+                            <div class="djs" style="right: 20px;">
+                                剩余：
+                                <span>
+                                    <em id="d">5</em>天
+                                    <em id="h">5</em>时
+                                    <em id="m">45</em>分
+                                    <em id="s">55</em>秒
+                                </span>
+                            </div>
+                            <dl class="tm-price clear">
+                                <dd class="price global-price0">
+                                    <span class="current fl">
+                                        <i class="symbols">￥</i>
+                                        <span class="js-cprice">89</span>
+                                    </span>
+                                    <span class="old fl">
+                                        参考价：
+                                        <em class="u-yen">¥</em>
+                                        <span class="js-oprice">156</span>
+                                    </span>
+                                </dd>
+                            </dl>
+                            <dl class="limit-time clear"></dl>
+                            <div class="get-coupons clear" style="display: none;"></div>
+                            <div class="classcoupons-coverbg" style="display: none;"></div>
+                        </div>
+                        <dl class="freight clear">
+                            <dt>配送：</dt>
+                            <dd>
+                                <div class="address">
+                                    阜阳市  至
+                                    <span class="address_selector">
+                                        <em class="js-address">山西</em>
+                                    <i></i>
+                                    </span>
+                                    <div class="city">
+                                        <ul>
+                                            <li>
+                                                <a href="">北京市</a>
+                                            </li>
+                                            <li>
+                                                <a href="">天津市</a>
+                                            </li>
+                                            <li>
+                                                <a href="">上海市</a>
+                                            </li>
+                                            <li>
+                                                <a href="">河南市</a>
+                                            </li>
+                                            <li>
+                                                <a href="">河北市</a>
+                                            </li>
+                                            <li>
+                                                <a href="">山西市</a>
+                                            </li>
+                                            <li>
+                                                <a href="">山东市</a>
+                                            </li>
+                                            <li>
+                                                <a href="">湖南市</a>
+                                            </li>
+                                            <li>
+                                                <a href="">湖北市</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="by" data-post="0" style="display: inline-block;">包邮，</div>
+                                <span class="sale_ad_txt sale_ad_info_time">24小时发货</span>
+                                <em class="delivery" style="display: none;">该地区不支持配送</em>
+                                <em class="delivery-tips">卷皮购物品质升级啦，满29元包邮哦~</em>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="J-other">
+                        <p class="J-title"></p>
+                        <dl class="color clear">
+                            <dt>颜色：</dt>
+                            <dd class="color_wrapper">
+                                <ul>
+                                    <li class="attr_pic_cur">
+                                        <a href="" title="黑色5cm">
+                                            <img src="./images/5efae47eb6f8ea7609257b62_800x800.jpg" height="22px" width="22px" alt="">
+                                            <span class="sku_attr_title">黑色5cm</span>
+                                        </a>
+                                    </li>
+                                    <li class="attr_pic_cur">
+                                        <a href="" title="蓝色5cm">
+                                            <img src="./images/5efae47eb6f8ea7609257b62_800x800.jpg" height="22px" width="22px" alt="">
+                                            <span class="sku_attr_title">蓝色5cm</span>
+                                        </a>
+                                    </li>
+                                    <li class="attr_pic_cur">
+                                        <a href="" title="黑色7cm">
+                                            <img src="./images/5efae47eb6f8ea7609257b62_800x800.jpg" height="22px" width="22px" alt="">
+                                            <span class="sku_attr_title">黑色7cm</span>
+                                        </a>
+                                    </li>
+                                    <li class="attr_pic_cur">
+                                        <a href="" title="蓝色7cm">
+                                            <img src="./images/5efae47eb6f8ea7609257b62_800x800.jpg" height="22px" width="22px" alt="">
+                                            <span class="sku_attr_title">蓝色7cm</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl class="size clear">
+                            <dt>尺码：</dt>
+                            <dd class="size_wrapper">
+                                <ul>
+                                    <li class="nos other">
+                                        <a href="javascript:void(0)">
+                                            <span class="c">34</span>
+                                            <span class="normal">库存紧张</span>
+                                        </a>
+                                    </li>
+                                    <li class="nos other">
+                                        <a href="javascript:void(0)">
+                                            <span class="c">35</span>
+                                            <span class="normal">库存紧张</span>
+                                        </a>
+                                    </li>
+                                    <li class="nos other">
+                                        <a href="javascript:void(0)">
+                                            <span class="c">36</span>
+                                            <span class="normal">库存紧张</span>
+                                        </a>
+                                    </li>
+                                    <li class="nos other">
+                                        <a href="javascript:void(0)">
+                                            <span class="c">37</span>
+                                            <span class="normal">库存紧张</span>
+                                        </a>
+                                    </li>
+                                    <li class="nos other">
+                                        <a href="javascript:void(0)">
+                                            <span class="c">38</span>
+                                            <span class="normal">库存紧张</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <div class="loadingsku" style="display: none;">
+                            <img src="./images/loading.gif" alt="">
+                        </div>
+                        <form action="" id="confirm" method="POST">
+                            <input type="hidden" name="pid" value="147252408">
+                            <input type="hidden" name="zid">
+                            <input type="hidden" name="fid">
+                            <input type="hidden" name="num">
+                            <input type="hidden" name="sid">
+                            <input type="hidden" name="token">
+                            <input type="hidden" name="favken">
+                        </form>
+                        <p class="tips" style="display: none;">
+                            <i class="icons icons-warn fl"></i>
+                            请选择尺码
+                        </p>
+                    </div>
+                    <dl class="number clear">
+                        <dt>数量：</dt>
+                        <dd>
+                            <p>
+                                <i class="decrease no">-</i>
+                                <input type="text" name="amount" autocomplete="off" value="1" id="">
+                                <i class="increase">+</i>
+                            </p>
+                            <span class="skulimitbuy" style="display: none;">
+                                限购
+                                <em class="red">50</em>
+                                件
+                            </span>
+                            <div id="stockconfig" style="display: none;"></div>
+                        </dd>
+                    </dl>
+                    <div id="J-mini-btn" class="submit-go clear">
+                        <a href="#" class="btn js-btn">立即购买</a>
+                        <a href="#" class="btn js-btn add-cart-btn" style="margin-left: 40px;">加入购物车</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="deal-store">
+                <div class="store_wrapper">
+                    <div class="deal_store_img">
+                        <img src="./images/5e7c629f33b089615904fae5_180x90.png" alt="">
+
+                    </div>
+                    <div class="deal_store_name">
+                        <a href="" class="sale_name" target="_blank">安尚尼女装小店</a>
+                    </div>
+                    <div class="deal_buy_nums">共200+件商品</div>
+                </div>
+                <div class="store_desc">
+                    <div class="sale_pd sale-line">
+                        <img src="./images/gold.png" alt="">
+                        金牌认证
+                    </div>
+                    <div class="sale_ps sale-line">
+                        <img src="./images/bail.png" alt="">
+                        已缴纳保证金
+                    </div>
+                    <div class="sale_license sale-line">
+                        <img src="./images/license.png" alt="">
+                        <a href="#" target="_blank">营业执照</a>
+                    </div>
+                </div>
+                <div class="to_im sale-line">
+                    <img src="./images/connect.png" alt="">
+                    <a href="#" target="_blank">联系客服</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" name="goodsdesc"></a>
+        <!-- 选项卡 -->
+        <div class="content clear">
+            <div class="title-nav">
+                <div class="slide-box fixed" style="overflow: visible;height: auto;">
+                    <div class="slide-box-main" style="overflow: visible;">
+                        <div class="fl">
+                            <ul>
+                                <li class="active">
+                                    <a href="javacript:;">商品详情</a>
+                                </li>
+                                <li >
+                                    <a href="javacript:;">商品规格</a>
+                                </li>
+                                <li >
+                                    <a href="javacript:;">物流与售后</a>
+                                </li>
+                                <li >
+                                    <a href="javacript:;">消费保障</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="fl" style="display: none;">
+                            <div class="seller" style="display: block;"></div>
+                        </div>
+                        <div class="fr">
+                            <a href="#" class="btn add-cart-btn">加入购物车</a>
+                            <span class="p">
+                                <i class="symbols">￥</i>
+                                89
+                            </span>
+                        </div> 
+                        <div class="code-item" style="position: relative;z-index: 10;display: block;">
+                            <a href="#" id="show-qcode">
+                                手机购买
+                                <i class="code_img"></i>
+                            </a>
+                            <div id="new-qcode" class="code-tips" style="display: none;">
+                                <div class="code-box">
+                                    <p class="code"></p>
+                                    <p class="txt" style="text-align: center;font-size: 14px;">随时逛 及时抢</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tm-goodsinfo" style="padding: 5px 40px 60px;margin: 0px 0px 40px;">
+                <div id="xiangqing" class="tab-show-section" style="display: block;">
+                    <div class="info-title">
+                        <span class="single-style">产品展示</span>
+                    </div>
+                    <div class="details-info">
+                        <div class="goods_desc">
+                            <img src="./images/5efae4e333b0897df14d0379_800x800 (1).jpg" style="display:block;" alt="" class="goods_desc_img lazy">
+                        </div>
+                    </div>
+                    <div class="info-title">
+                        <span class="single-style">细节做工</span>
+                    </div>
+                    <div class="details-info">
+                        <div class="goods_desc">
+                            <img src="./images/5efae4e4b6f8ea77565c7676_800x800 (1).jpg" style="display:block;" alt="" class="goods_desc_img lazy">
+                            <img src="./images/5efae4e4b6f8ea77565c7676_800x800 (1).jpg" style="display:block;" alt="" class="goods_desc_img lazy">
+                            <img src="./images/5efae4e4b6f8ea77565c7676_800x800 (1).jpg" style="display:block;" alt="" class="goods_desc_img lazy">
+                        </div>
+                    </div>
+                    <div class="info-title">
+                        <span class="single-style">模特实拍</span>
+                    </div>
+                    <div class="details-info">
+                        <div class="goods_desc">
+                            <img src="./images/5efae4e4b6f8ea77565c7676_800x800 (1).jpg" style="display:block;" alt="" class="goods_desc_img lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-show-section" style="display: block;">
+                    <div class="info-title" id="guige">
+                        <a href="#" name="sbtggcs"></a>
+                        <span class="param">参数规格</span>
+                    </div>
+                    <div class="details-info">
+                        <table cellpadding="0" cellspacing="0" class="tb-param">
+                            <tbody>
+                                <tr>
+                                    <td width="33%">跟底款式：细跟</td>
+                                    <td width="33%">后高跟：高跟（5-8cm）</td>
+                                    <td width="33%">鞋头款式：露趾</td>
+                                </tr>
+                                <tr>
+                                    <td width="33%">帮面材质：PU</td>
+                                    <td width="33%">上市年份季节：2020年夏季</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table cellpadding="0" cellspacing="0" class="tb-param tb-nb"></table>
+                    </div>
+                </div>
+                <div id="shouhou" class="tab-show-section" style="display: block;">
+                    <div class="info-title">
+                        <span class="buy-guidelines">物流与售后</span>
+                    </div>
+                    <div class="details-info guidelines-con">
+                        <p>
+                            <b>商家提醒：</b>
+                            此商品由品牌商从
+                            <b>【安徽阜阳】</b>
+                            通过
+                            <b>【联系客服】</b>
+                            发货
+                        </p>
+                        <p>
+                            <b>24小时发货：</b>
+                            买家付款成功后，商家将在24小时内完成发货。（节假日等特殊情况除外）
+                        </p>
+                        <p>
+                            <b>包裹跟踪：</b>
+                            您可在
+                            <a href="#" target="_blank">【我的订单】</a>
+                            中查询物流跟踪信息
+                        </p>
+                        <p>
+                            <b>确认收货：</b>
+                            当快件送达至您的收货地址后，卷皮将为您自动确认收货并将奖励积分发放至您的账户。
+                        </p>
+                        <div class="return-process"></div>
+                        <p>
+                            <b>售后服务承诺</b>
+                            <br>
+                            
+                            收到货后，如果因为主观原因不喜欢/不想要了，在不影响二次销售的情况下，签收后7天内，卷皮网为您提供七天无理由退货服务。如果未收到货或收到商品有质量问题，您可以在签收后15天内申请售后。
+                                    
+                            <a href="#" target="_blank">售后服务说明>></a>
+                        </p>
+                        <p class="mt10">
+                            <b>运费补贴政策</b>
+                            <br>
+                            <span class="oldrule">商品存在问题时，请及时申请售后，卷皮将提供至少10元的退货运费补贴。如遇到少件、错发、空包裹等情况，还额外提供至少10元的补偿。</span>
+                            <a href="#" target="_blank">退货运费补贴说明>></a>
+                        </p>
+                        <p class="mt10">
+                            <b>价格说明</b>
+                            <br>
+                            <span>关于卷皮商品价格的说明</span>
+                            <a href="#" class="js_price_desc">查看详情>></a>
+                        </p>
+                    </div>
+                </div>
+                <div id="baozhang" class="tab-show-section">
+                    <div class="info-title">
+                        <span class="consumer-protection">消费保障</span>
+                    </div>
+                    <div class="details-info">
+                        <div class="cp01">
+                            <ul>
+                                <li>
+                                    <span class="cpc01"></span>
+                                </li>
+                                <li>
+                                    <span class="cpc02"></span>
+                                </li>
+                                <li>
+                                    <span class="cpc03"></span>
+                                </li>
+                                <li>
+                                    <span class="cpc04"></span>
+                                </li>
+                                <li>
+                                    <span class="cpc05"></span>
+                                </li>
+                                <li>
+                                    <span class="cpc06"></span>
+                                </li>
+                                <li>
+                                    <span class="cpc07"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cp02">
+                            <div class="cp-con" style="display: block;">
+                                <div class="con1"></div>
+                            </div>
+                            <div class="cp-con" style="display: none;">
+                                <div class="con2"></div>
+                            </div>
+                            <div class="cp-con" style="display: none;">
+                                <div class="con3"></div>
+                            </div>
+                            <div class="cp-con" style="display: none;">
+                                <div class="con4"></div>
+                            </div>
+                            <div class="cp-con" style="display: none;">
+                                <div class="con5"></div>
+                            </div>
+                            <div class="cp-con" style="display: none;">
+                                <div class="con6"></div>
+                            </div>
+                            <div class="cp-con" style="display: none;">
+                                <div class="con7"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="other-goods-section">
+                <div class="other-goods-list">
+                    <div class="title-other-grey">专场其他商品</div>
+                    <a href="#" class="other-goods-item">
+                        <img src="./images/5f0d287833b089266934e600_800x800.jpg" class="goods_img" alt="">
+                        <div class="other-goods-desc">
+                            <div class="other-goods-name">凉鞋女2020夏季新款</div>
+                            <div class="other-goods-wrapper">
+                                <span class="other-new-cprice">¥89</span>
+                                <span class="other-new-oprice">¥149</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="other-goods-item">
+                        <img src="./images/5f0d287833b089266934e600_800x800.jpg" class="goods_img" alt="">
+                        <div class="other-goods-desc">
+                            <div class="other-goods-name">凉鞋女2020夏季新款</div>
+                            <div class="other-goods-wrapper">
+                                <span class="other-new-cprice">¥89</span>
+                                <span class="other-new-oprice">¥149</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="other-goods-item">
+                        <img src="./images/5f0d287833b089266934e600_800x800.jpg" class="goods_img" alt="">
+                        <div class="other-goods-desc">
+                            <div class="other-goods-name">凉鞋女2020夏季新款</div>
+                            <div class="other-goods-wrapper">
+                                <span class="other-new-cprice">¥89</span>
+                                <span class="other-new-oprice">¥149</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="recommond-goods-list"></div>
+            </div>
+        </div>
+        <!-- 选项卡 -->
+    </div>
+</div>
+<!-- 主体 -->
+<!-- 页脚 -->
+<div class="foot">
+    <div class="white_bg">
+        <div class="foot-con">
+            <div class="con-box-n clear">
+                <div class="app-side-box fl">
+                    <p class="app-show"></p>
+                    <p class="app-txt" style="text-align: center;font-size: 14px;">随时逛 及时抢</p>
+                </div>
+                <div class="con-left-info fl">
+                    <dl class="update">
+                        <dt>获取更新</dt>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                iPhone/Android
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                卷皮QQ空间
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                卷皮新浪微博
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                开放API
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl class="cooperation">
+                        <dt>商务合作</dt>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                卖家免费报名
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                商家入驻
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                廉政邮箱
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                开放平台
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl class="cor-info">
+                        <dt>公司信息</dt>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                关于卷皮
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                媒体报道
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl class="help-info">
+                        <dt>帮助中心</dt>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                新手上路
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="" target="_blank" rel="nofollow">
+                                <i></i>
+                                网站地图
+                            </a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="con-menu fr">
+                    <a href="" class="service-add fl" target="_blank" rel="nofollow"></a>
+                    <span class="service-time fl">
+                        <p>周一至周日</p>
+                        <p>9:00-18:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </span>
+                    <div class="clear"></div>
+                    <span class="f12 lh24 vm" title="4000090869">客服热线：400-0090-869</span>
+                </div>
+            </div>
+            <div class="links">
+                <span>友情链接：</span>
+                <div class="link_list_box">
+                    <ul class="link_list">
+                        <li>
+                        </li>
+                        <li></li>
+                    </ul>
+                </div>
+                <a href="" class="more">更多>></a>
+            </div>
+            <p class="ft-company">
+                武汉奇米网络科技有限公司 鄂ICP备10209250号 | ICP许可证号：鄂B2-20150109 | 
+                <a href="" target="_blank">鄂公网安备42018502000390号
+                </a>
+                | 食品流通许可证 SP4201991510041888　　
+            </p>
+            <p class="ft-company" style="padding-top: 2px;">Copyright © 2010 -2020 JuanPi.com All Rights Reserved</p>
+            
+        </div>
+    </div>
+</div>
+<div class="side_right" id="J_sidebar">
+    <div class="side-box">
+        <ul class="side-oper" >
+            <li class="normal side-user">
+                <a href="" id="J_user" class="links">
+                    <i class="normal-icon i-user"></i>
+                </a>
+                <div class="tab-tips tab-login" id="side-login"  >
+                    <div class="user-box">
+                        <a href="" target="_blank" class="head">
+                            <div class="pic">
+                                <img src="./images/default-60.jpg" alt="">
+                            </div>
+                        </a>
+                        <p class="txt">
+                            快来
+                            <a href="" target="_blank">登录</a>
+                            吧，么么哒！
+                        </p>
+                    </div>
+                    <i class="close">×</i>
+                    <div class="arr-icon">◆</div>
+                </div>
+            </li>
+            <li class="normal side-cart">
+                <a href="" class="links links-cart" id="J_cart">
+                    <i class="normal-icon i-cart"></i>
+                    <em class="num cartnum">0</em>
+                </a>
+                <div class="tab-tips tab-tag">
+                    <div class="carttime"></div>
+                    <div class="arr-icon">◆</div>
+                </div>
+            </li>
+            <li class="normal side-love">
+                <a href="" id="J_love" target="_blank" class="links">
+                    <i class="normal-icon i-love"></i>
+                </a>
+                <div class="tab-tips">
+                    我的收藏
+                    <div class="arr-icon">◆</div>
+                </div>
+            </li>
+            <li class="normal side-quan">
+                <a href="" target="_blank" id="J_quan" class="links">
+                    <i class="normal-icon i-quan"></i>
+                </a>
+                <div class="tab-tips">
+                    我的优惠券
+                    <div class="arr-icon">◆</div>
+                </div>
+            </li>
+        </ul>
+        <ul class="side-oper other">
+            <li class="normal side-ad" style="display: none;">
+            </li>
+            <li class="normal side-complain">
+                <a href="" id="J_complain" target="_blank" class="links">
+                    <i class="normal-icon i-complain"></i>
+                </a>
+                <div class="tab-tips">
+                    意见反馈
+                    <div class="arr-icon">◆</div>
+                </div>
+            </li>
+            <li class="normal side-code">
+                <a href="" id="J_code" target="_blank" class="links">
+                    <i class="normal-icon i-code"></i>
+                </a>
+                <div class="tab-tips">
+                    <div class="code-box">
+                        <p class="code"></p>
+                        <p class="txt" style="text-align: center;font-size: 14px;">随时逛 及时抢</p>
+                    </div>
+                    <div class="arr-icon">◆</div>
+                </div>
+            </li>
+            <li class="normal side-backtop">
+                <a href="" id="J_backtop" class="links">
+                    <i class="normal-icon i-backtop"></i>
+                </a>
+                <div class="tab-tips">
+                    返回顶部
+                    <div class="arr-icon">◆</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="bag-tool right-bag" id="J-right-bag"></div>
+    <div id="side-empty" class="tab-login" style="display:none;opacity: 1;right: 36px;"></div>
+</div>
+<!-- 页脚 -->   
+</body>
+</html>
