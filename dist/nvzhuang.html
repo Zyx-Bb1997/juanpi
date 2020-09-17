@@ -3,11 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.min.css">
     <link rel="stylesheet" href="./css/public.min.css">
     <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/jquery-1.12.4.min.min.js"></script>
     <script src="./js/requestAnimationFrame.min.js"></script>
     <title>女装</title>
+    <script>
+		$.get('./goods_info.json',(data)=>{
+			let arr = [];
+			let i = 0;
+			let obj = {};
+			console.log(data);
+			for(key in data){
+				console.log(data[key]);
+				arr[i] = (data[key]);
+				console.log(arr[i]);
+				obj = arr[i][0];
+				console.log(obj.src);
+				i++;
+				console.log(i);
+				
+				console.log($('.pic-img').eq(i-1).find('img').attr('src',obj.src));
+				$('.price-current').eq(i-1).html(`<em>￥</em>${obj.xianjia}`);
+				$('.price-old').eq(i-1).html(`<em>￥</em>${obj.yuanjia}`);
+				$('.good-title').eq(i-1).find('a').text(obj.title);
+				$('.sold').eq(i-1).text(obj.time);
+			}
+			
+		})
+	</script>
+		<script>
+			
+			// $(function(){
+			// 	new WaterFall();
+			// })
+			window.onload = function(){
+				new WaterFall();
+			}
+			// $(window).resize(function(){
+			// 	new WaterFall();
+			// })
+			function WaterFall(){
+				this.init();
+			}
+			WaterFall.prototype.init = function(){
+				//获取到大盒子
+				let $big_box = $('.goods-list');
+				//获取所有子节点
+				let $childs = $big_box.children();
+				//计算大盒子的宽
+				let big_box_width = $big_box.width();
+				//计算一个子节点宽
+				let child_width = $childs.eq(0).outerWidth();
+				//计算列数
+				let col_num = Math.floor(big_box_width / child_width);
+				//计算列之间的间隙
+				let padding = Math.floor((big_box_width - child_width * col_num ) / (col_num + 1));
+				//初始化第一行的坐标值
+				let arr = [];
+				for(let i = 0;i < col_num;i ++){
+					let obj = {
+						left : child_width * i + (i + 1) * padding,
+						top : 10
+					}
+					arr.push(obj);
+				}
+				//对号入座
+				$childs.each(function(i,value){
+					var index = minHeight(arr); //最小高度的下标
+					$(value).animate({left : arr[index].left,top : arr[index].top},700)
+					arr[index].top += 10 + $(value).outerHeight();
+					$big_box.css('height',arr[index].top);
+				})
+					
+				
+			}
+			function minHeight(arr){
+				//求数组中的最小值
+				//取出数组中第一个值
+				var min = arr[0].top;
+				var i = 0; //记录这个值所在的下标
+				//遍历数组
+				arr.forEach((value,index)=>{
+					//依次比较，找出最小值
+					if(min > value.top){
+						min = value.top;
+						i = index; //记录最小值的下标
+					}
+				})
+				return i; //返回下标
+			}
+		</script>
 </head>
 <body>
     <!-- 注册登录栏 -->
@@ -111,6 +198,352 @@
         </script>
     </div>
     <!-- 头部菜单栏 -->
+    <!-- 主体 -->
+    <ul class="goods-list clear">
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="#">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="#"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        
+        
+        
+
+    </ul>
+    <!-- 主体 -->
         <!-- 页脚 -->
         <div class="foot">
             <div class="white_bg">

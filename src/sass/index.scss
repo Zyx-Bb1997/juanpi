@@ -465,6 +465,134 @@ body .brand_index{
     float: right;
     margin-right: 2px;
 }
+.goods-list {
+    width: 1200px;
+    margin:0 auto;
+}
+.goods-list {
+    padding-left: 14px;
+    box-sizing: border-box;
+}
+.clear {
+    zoom: 1;
+    clear: both;
+}
+.clear:after, .clear:before {
+    content: "";
+    display: table;
+}
+.goods-list li {
+    width: 230px;
+    background: #FFF;
+    float: left;
+    margin: 0 6px 12px 0;
+    height: 290px;
+    box-sizing: border-box;
+    padding-top: 6px;
+    border: 1px solid transparent;
+}
+.goods-list li .list-good {
+    position: relative;
+    width: 232px;
+    height: auto;
+    z-index: 1;
+}
+.good-pic {
+    width: 220px;
+    position: relative;
+    height: 220px;
+    padding-left: 4px;
+}
+.goods-list li .pic-img {
+    height: 220px;
+    overflow: hidden;
+    text-align: center;
+    width: 220px;
+    display: table-cell;
+    vertical-align: middle;
+    _display: block;
+}
+.goods-list li .pic-img img {
+    max-width: 220px;
+    max-height: 220px;
+    _height: 220px;
+    _width: 220px;
+}
+.goods-list li .good-price {
+    width: 220px;
+    height: 32px;
+    line-height: 36px;
+    position: relative;
+    padding: 0 10px 0px 8px;
+    background: #fff;
+    z-index: 10;
+    box-sizing: border-box;
+    float: left;
+}
+.goods-list li .list-good.buy .good-price .price-current {
+    color: #ff464e;
+}
+.goods-list li .good-price .price-current {
+    font-size: 18px;
+    font-family: Arial;
+}
+.goods-list li .good-price .price-current em {
+    font-size: 18px;
+    font-family: "微软雅黑","verdana";
+    margin-left: -1px;
+    margin-right: -1px;
+}
+.goods-list li .good-price .des-other {
+    margin: 2px 0 0 5px;
+}
+.goods-list li .good-price .des-other .price-old {
+    color: #bbb;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+.goods-list li .good-price .des-other .price-old em {
+    font-family: "微软雅黑","verdana";
+    font-size: 12px;
+}
+address, cite, dfn, em, var, i {
+    font-style: normal;
+}
+.goods-list li .good-price .price-current, .goods-list li .good-price .des-other {
+    display: block;
+    float: left;
+}
+.goods-list li .good-title {
+    width: 220px;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 0 10px 0 10px;
+    position: relative;
+    font-weight: normal;
+    color: #333;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    letter-spacing: 0;
+}
+.goods-list li .good-title a {
+    display: inline-block;
+    color: #333;
+    letter-spacing: 1px;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.goods-list li .good-title span.sold {
+    display: block;
+    color: #bbb;
+    position: absolute;
+    top: 0;
+    right: 6px;
+    background: #fff;
+    height: 18px;
+    text-align: right;
+}
 // 左侧菜单栏
 // 轮播菜单栏
 // 主体
