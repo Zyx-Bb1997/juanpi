@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.min.css">
     <link rel="stylesheet" href="./css/public.min.css">
-    <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/jquery-1.12.4.min.min.js"></script>
+    <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/requestAnimationFrame.min.js"></script>
     <title>卷皮首页</title>
     <script>
@@ -16,15 +16,10 @@
 			let obj = {};
 			console.log(data);
 			for(key in data){
-				console.log(data[key]);
 				arr[i] = (data[key]);
-				console.log(arr[i]);
 				obj = arr[i][0];
-				console.log(obj.src);
 				i++;
-				console.log(i);
-				
-				console.log($('.pic-img').eq(i-1).find('img').attr('src',obj.src));
+				$('.pic-img').eq(i-1).find('img').attr('src',obj.src);
 				$('.price-current').eq(i-1).html(`<em>￥</em>${obj.xianjia}`);
 				$('.price-old').eq(i-1).html(`<em>￥</em>${obj.yuanjia}`);
 				$('.good-title').eq(i-1).find('a').text(obj.title);
@@ -102,14 +97,14 @@
         <div class="tool-con">
             <div class="right-show fr">
                 <div class="login-show">
-                    <a href="">登录</a>
-                    <a id="nav-reg" href="">免费注册</a>
+                    <a href="./login.html">登录</a>
+                    <a id="nav-reg" href="./register.html">免费注册</a>
                     &nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="">我的订单</a>
                     <a href="">商家入驻</a>
                 </div>
                 <div class="bag-show">
-                    <a href="" class="bar-a">
+                    <a href="./cart.html" class="bar-a">
                     <span class="icon-normal icon-bag fl"></span>
                     <span class="empty fl">
                         <span class="fl">购物袋</span>
@@ -201,23 +196,76 @@
     <!-- 主体 -->
     <div class="top_bar">
         <ul id="banner_list" class="banner">
-            <li>
-                <a href="" class="pic center"></a>
+            <li style="background: url(./images/5f50a2fb33b0891555677c26_700x360.jpg) center center no-repeat;">
+                <a class="pic center" href="#">
+    
+                </a>
             </li>
-            <li>
-                <a href="" class="pic center"></a>
+            <li style="background: url(./images/5f5f5b8833b0897a5c38d31a_700x360.png) center center no-repeat;">
+                <a class="pic center" href="#"></a>
             </li>
-            <li >
-                <a href="" class="pic center"></a>   
+            <li style="background: url(./images/5f631f9133b08967196fd20e_700x360.jpg) center center no-repeat;">
+                <a class="pic center" href="#">
+    
+                </a>
             </li>
         </ul>
+        <script>
+            let $li = $('#banner_list li');
+            console.log($li.eq(0));
+            let timer = null;
+            let inow = 0;
+            let iop = false;
+            let izidx = 0;
+            timer = setInterval(() => {
+                if(inow == 0){
+                    inow = 1;
+                }else if(inow == 1){
+                    inow = 2;
+                }else{
+                    inow = 0;
+                }
+                iop == false ? iop = true : iop = false;
+                izidx ++;
+                /* console.log(inow);
+                console.log(iop);
+                console.log(izidx); */
+                /* $li.eq(inow).css({
+                    "z-index" : izidx,
+                    "opacity" : Number(iop)
+            }); */
+                $li.each((index,value)=>{
+                    if(index == inow){
+                        $(value).css({
+                        "z-index" : izidx,
+                        "opacity" : Number(iop),
+                    });
+                    $('.adType a').eq(index).addClass("current");
+                    }else{
+                        $(value).css({
+                            "opacity":Number(!iop),
+                        });
+                        $('.adType a').eq(index).removeClass('current');
+                    }
+                })
+            }, 2000);
+            $('.adType a').each((index,value)=>{
+                $(value).on('click',()=>{
+                $(this).addClass('current')
+                })
+            })
+            let $ul = $('#banner_list');
+            $ul.mouseenter(
+                $('.banner_arrow').css("display","block")
+            )
+        </script>
     </div>
     <div class="top_wrap">
         <div class="top_box">
             <div class="banner_l">
                 <dl>
                     <dd>
-                        <a href="">
+                        <a href="./nvzhuang.html">
                             <i class="ct-icon ct-icon-nvzhuang"></i>
                             女装
                             <em class="ct-line"></em>
@@ -340,9 +388,9 @@
             </div>
             <div class="round">
                 <div class="adType">
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
                 </div>
             </div>
         </div>

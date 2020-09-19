@@ -16,15 +16,11 @@
 			let obj = {};
 			console.log(data);
 			for(key in data){
-				console.log(data[key]);
 				arr[i] = (data[key]);
-				console.log(arr[i]);
 				obj = arr[i][0];
-				console.log(obj.src);
 				i++;
-				console.log(i);
 				
-				console.log($('.pic-img').eq(i-1).find('img').attr('src',obj.src));
+				$('.pic-img').eq(i-1).find('img').attr('src',obj.src);
 				$('.price-current').eq(i-1).html(`<em>￥</em>${obj.xianjia}`);
 				$('.price-old').eq(i-1).html(`<em>￥</em>${obj.yuanjia}`);
 				$('.good-title').eq(i-1).find('a').text(obj.title);
@@ -102,14 +98,14 @@
         <div class="tool-con">
             <div class="right-show fr">
                 <div class="login-show">
-                    <a href="">登录</a>
-                    <a id="nav-reg" href="">免费注册</a>
+                    <a href="./login.html">登录</a>
+                    <a id="nav-reg" href="./register.html">免费注册</a>
                     &nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="">我的订单</a>
                     <a href="">商家入驻</a>
                 </div>
                 <div class="bag-show">
-                    <a href="" class="bar-a">
+                    <a href="./cart.html" class="bar-a">
                     <span class="icon-normal icon-bag fl"></span>
                     <span class="empty fl">
                         <span class="fl">购物袋</span>
@@ -132,7 +128,7 @@
     <div class="header clear">
         <!-- logo 搜索栏 -->
         <div class="area">
-            <a href="" class="juan-logo fl" title="卷皮首页">
+            <a href="./index.html" class="juan-logo fl" title="卷皮首页">
                 <div class="logo logo1">
                     <div class="fl">
                         <span class="juan-txt fl"></span>
@@ -200,6 +196,58 @@
     <!-- 头部菜单栏 -->
     <!-- 主体 -->
     <ul class="goods-list clear">
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="./goodinfo.html">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="./goodinfo.html"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
+        <li>
+            <div class="list-good buy">
+                <div class="good-pic">
+                    <div class="pic-img">
+                        <a href="./goodinfo.html">
+                            <img style="display: inline;" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="good-price">
+                    <span class="price-current">
+                        <em>￥</em>
+                    </span>
+                    <span class="des-other">
+                        <span class="price-old">
+                            <em>￥</em>
+
+                        </span>
+                    </span>
+                </div>
+                <h3 class="good-title">
+                    <a href="./goodinfo.html"></a>
+                    <span class="sold"></span>
+                </h3>
+            </div>
+        </li>
         <li>
             <div class="list-good buy">
                 <div class="good-pic">

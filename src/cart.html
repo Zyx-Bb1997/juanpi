@@ -6,8 +6,9 @@
     <title>购物车页</title>
     <link rel="stylesheet" href="./css/cart.min.css">
     <link rel="stylesheet" href="./css/public.min.css">
-    <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/jquery-1.12.4.min.min.js"></script>
+    <script src="./js/jquery.cookie.min.js"></script>
+    <script src="./js/public.min.js"></script>
     <script src="./js/requestAnimationFrame.min.js"></script>
 </head>
 <body>
@@ -67,7 +68,7 @@
         <div class="sc-dVhcbM hKQHp sc-hzDkRC fWrwWU">操作</div>
     </div>
     <div class="sc-bRbYWo cobIRk">
-        <div class="sc-cJSrbW gdQmFd">
+        <!-- <div class="sc-cJSrbW gdQmFd">
             <div class="sc-eqIVtm cnZstM">
                 <div class="sc-gGBfsJ dhEFau">
                     <span class="sc-esjQYD hEFYKq checked"></span>
@@ -118,7 +119,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="sc-hqyNC dTaAdI">
             <div class="sc-jbKcbu lcRLSj">
                 <div class="sc-gGBfsJ dhEFau">
@@ -146,6 +147,154 @@
         </div>
     </div>
 </div>
+<script>
+    //获取cookie
+    let cookie_str = $.cookie('carts') ? $.cookie('carts') : '';
+    if(!cookie_str){
+        $('.blank').css('display','block');
+    }else{
+        //转为对象
+        let cookie_obj = $toObj(cookie_str);
+        //遍历对象
+        for(let key in cookie_obj){
+            let good = cookie_obj[key];
+            $('.sc-hqyNC').before(`
+            <div class="sc-cJSrbW gdQmFd">
+    <div class="sc-eqIVtm cnZstM">
+        <div class="sc-gGBfsJ dhEFau">
+            <span class="sc-esjQYD hEFYKq checked"></span>
+        </div>
+        <div class="sc-caSCKo hEoyiQ">
+            <img class="sc-fAjcbJ jklnfm" src="./images/594233d5a43d1f45d646cb90_72x72.png" alt="">
+            ${good.shop_name}
+        </div>
+    </div>
+    <div class="sc-kvZOFW eiPhbT goodInfo " data-good-id="${key}">
+        <div class="sc-kgAjT jgeReN">
+            <div class="sc-jnlKLf hsCwkx sc-gGBfsJ dhEFau">
+                <span class="sc-esjQYD hEFYKq checked"></span>
+            </div>
+            <a href="#">
+                <img class="sc-fYxtnH dTmrnm" width="100" height="100" src="./images/5efae48933b08902745f14e9_800x800.jpg" alt="">
+            </a>
+            <div class="sc-hEsumM bHFcVk sc-tilXH hpxIDz">
+                <strong class="sc-cIShpX fFbWQU">
+                    ${good.name}
+                    <span class="sc-kafWEX fFwBrd">${good.now}</span>
+                </strong>
+                <span class="sc-feJyhm fNZORM">
+                    ${good.size}
+                    ，
+                    ${good.color}
+                </span>
+            </div>
+            <div class="sc-iELTvK gqzEPU sc-tilXH hpxIDz">
+                ￥ ${good.cprice}
+                <i class="sc-cmTdod jFEPfJ">
+                    /￥ ${good.oprice}
+                </i>
+            </div>
+            <div class="sc-jwKygS cABebT sc-tilXH hpxIDz">
+                <span class="sc-bYSBpT jKWKYq sc-btzYZH eXJNFH minus">-</span>
+                <span class="sc-elJkPf eywEEl sc-btzYZH jqPibT num input">${good.num}</span>
+                <span class="sc-lhVmIH jiKWSK sc-btzYZH jqPibT plus">+</span>
+            </div>
+            <div class="sc-jtRfpW dQIiuS sc-tilXH hpxIDz">
+                ￥
+                ${good.cprice * good.num}
+            </div>
+            <div class="sc-kTUwUJ giPVvt sc-tilXH hpxIDz">
+                <span class="sc-gxMtzJ ewFBmF sc-dqBHgY carNkP del"></span>
+            </div>
+        </div>
+    </div>
+</div>
+            `)
+        }
+        //减号
+        let $minus = $('.minus');
+        $minus.each(function(i,value){
+            $(value).click(()=>{
+                
+                //获取id
+                let id = $(this).parents('.goodInfo').attr('data-good-id');
+                //获取cookie
+                let cookie_str = $.cookie('carts') ? $.cookie('carts') : '';
+                //转对象
+                let cookie_obj = $toObj(cookie_str);
+                //改变数量
+                if(cookie_obj[id].num > 0){
+                    cookie_obj[id].num --;
+                }
+                //存入cookie
+                $.cookie('carts',JSON.stringify(cookie_obj),{expires : 7,path : '/'});
+                //修改数量文本框
+                $(this).next().text(cookie_obj[id].num);
+                //修改合计
+                $(this).parent().next().text("￥" + cookie_obj[id].cprice * cookie_obj[id].num);
+            })
+        })
+        $('.plus').each(function(i,value){
+            $(value).click(()=>{
+                //当前商品的id
+                let id = $(this).parents('.goodInfo').attr('data-good-id');
+                //获取cookie
+                let cookie_str = $.cookie('carts') ? $.cookie('carts') : '';
+                //转对象
+                let cookie_obj = $toObj(cookie_str);
+                //数量增加
+                cookie_obj[id].num ++;
+                //存入cookie
+                $.cookie('carts',JSON.stringify(cookie_obj),{expires : 7,path : '/'});
+                //修改数量文本框
+                $(this).prev().text (cookie_obj[id].num);
+                //合计
+                //修改合计
+                $(this).parent().next().text("￥" + cookie_obj[id].cprice * cookie_obj[id].num);
+            })
+        })
+        //数量框
+        $('.num input').each(function(index,value){
+            $(value).blur(()=>{
+                //id
+                let id = $(this).parents('.goodInfo').attr('data-good-id');
+                
+                //获取cookie
+                let cookie_str = $.cookie('carts') ? $.cookie('carts') : '';
+                //转对象
+                let cookie_obj = $toObj(cookie_str);
+                //文本框数量
+                //非数字   正整数
+                let num = $(this).val();
+                if(!/^\d+$/.test(num)){
+                    num = 0;
+                }
+                cookie_obj[id].num = num;
+                
+                //存入cookie
+                $.cookie('carts',JSON.stringify(cookie_obj),{expires : 7,path : '/'});
+                $(this).val(cookie_obj[id].num);
+                $(this).parent().next().text(cookie_obj[id].price * cookie_obj[id].num);
+            })
+        })
+        //删除
+        $('.del').each(function(index,value){
+            $(value).click(()=>{
+                let id = $(this).parents('.goodInfo').attr('data-good-id');
+                //获取cookie
+                let cookie_str = $.cookie('carts') ? $.cookie('carts') : '';
+                //转对象
+                let cookie_obj = $toObj(cookie_str);
+                //删除对象中的属性
+                delete cookie_obj[id];
+                //存入cookie
+                $.cookie('carts',JSON.stringify(cookie_obj),{expires : 7,path : '/'});
+                //删除页面中的商品信息
+                $(this).parents('.goodInfo').remove();
+            })
+        })
+    }
+</script>
 <!-- 主体 -->
 <!-- 页脚 -->
 <div class="foot">

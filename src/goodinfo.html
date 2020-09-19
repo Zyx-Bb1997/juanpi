@@ -6,9 +6,13 @@
     <title>商品详情页</title>
     <link rel="stylesheet" href="./css/public.min.css">
     <link rel="stylesheet" href="./css/goodinfo.min.css">
-    <script src="./js/jquery.cookie.min.js"></script>
+
     <script src="./js/jquery-1.12.4.min.min.js"></script>
+    <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/requestAnimationFrame.min.js"></script>
+    <script src="./js/goodinfo.min.js"></script>
+    <script src="./js/public.min.js"></script>
+
 </head>
 <body>
 <!-- 注册登录栏 -->
@@ -16,8 +20,8 @@
     <div class="tool-con">
         <div class="right-show fr">
             <div class="login-show">
-                <a href="">登录</a>
-                <a id="nav-reg" href="">免费注册</a>
+                <a href="./login.html">登录</a>
+                <a id="nav-reg" href="./register.html">免费注册</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="">我的订单</a>
                 <a href="">商家入驻</a>
@@ -46,7 +50,7 @@
 <div class="header clear">
     <!-- logo 搜索栏 -->
     <div class="area">
-        <a href="" class="juan-logo fl" title="卷皮首页">
+        <a href="./index.html" class="juan-logo fl" title="卷皮首页">
             <div class="logo logo1">
                 <div class="fl">
                     <span class="juan-txt fl"></span>
@@ -122,7 +126,7 @@
             <div class="place-explain fl">
                 <a href="" class="tab-links">首页</a>
                 <em class="tab_arrow"></em>
-                <a href="" class="body-xx-seo tab-links">交叉绑带凉鞋女2020夏</a>
+                <a href="" class="body-xx-seo tab-links" data-good-id="12346454">交叉绑带凉鞋女2020夏</a>
             </div>
         </div>
         <div class="goods_show clear" >
@@ -296,7 +300,7 @@
                             <dt>颜色：</dt>
                             <dd class="color_wrapper">
                                 <ul>
-                                    <li class="attr_pic_cur">
+                                    <li class="attr_pic_cur checked">
                                         <a href="" title="黑色5cm">
                                             <img src="./images/5efae47eb6f8ea7609257b62_800x800.jpg" height="22px" width="22px" alt="">
                                             <span class="sku_attr_title">黑色5cm</span>
@@ -333,7 +337,7 @@
                                             <span class="normal">库存紧张</span>
                                         </a>
                                     </li>
-                                    <li class="nos other">
+                                    <li class="nos other checked">
                                         <a href="javascript:void(0)">
                                             <span class="c">35</span>
                                             <span class="normal">库存紧张</span>
@@ -395,10 +399,113 @@
                     </dl>
                     <div id="J-mini-btn" class="submit-go clear">
                         <a href="#" class="btn js-btn">立即购买</a>
-                        <a href="#" class="btn js-btn add-cart-btn" style="margin-left: 40px;">加入购物车</a>
-
+                        <a href="javascript:;" class="btn js-btn add-cart-btn addToCart" style="margin-left: 40px;">加入购物车</a>
                     </div>
                 </div>
+                <script>
+                    let $buy = $('#buy');
+			init();
+			$buy.click(()=>{
+				location.href = 'cart.html';
+			})
+			let $to_cart = $('.addToCart');
+			//遍历添加事件
+			$to_cart.each(function(i,value){
+				$(value).on('click',(event)=>{
+					//商品id
+					let good_id = $(this).parents('.main').find('.body-xx-seo').attr('data-good-id');
+					//商品名称
+					let good_name = $(this).parents('.main').find('.body-xx-seo').text();
+					//商品src
+					let good_src = $(this).parents('.main').find('.pic').attr('src');
+					//商品现价格
+                    let good_cprice = $(this).parents('.main').find('.js-cprice').text();
+                    // 商品原价
+                    let good_oprice = $(this).parents('.main').find('.js-oprice').text();
+                    // 店铺名
+                    let shop_name = $(this).parents('.main').find('.sale_name').text();
+                    // 商品现状
+                    let good_now = $(this).parents('.main').find('.size_wrapper').find('.checked').find('span').eq(1).text();
+                    // 商品型号
+                    let good_size = $(this).parents('.main').find('.size_wrapper').find('.checked').find('span').eq(0).text();
+                    // 商品颜色
+                    let good_color = $(this).parents('.main').find('.color_wrapper').find('.checked').find('span').text();
+					/*
+						key : carts
+						value :
+						'{
+							'sp1' : {
+								name : '',
+                                cprice : '',
+                                oprice : '',
+                                shop_name : '',
+                                now : '',
+                                size : '',
+                                color : '',
+                                src : '',
+                                
+								num : ''
+							}	
+						}'
+					*/
+					//判断购物车中是否存在 
+					//获取cookie
+					let cookie_str = $.cookie('carts') ? $.cookie('carts') : '';
+					//转对象
+					let cookie_obj = $toObj(cookie_str);
+					//判断对象中是否存在当前购买的商品
+					if(good_id in cookie_obj){
+						cookie_obj[good_id].num ++;
+					}else{
+						cookie_obj[good_id] = {
+							"name" : good_name,
+							"src" : good_src,
+                            "cprice" : good_cprice,
+                            "oprice" : good_oprice,
+                            "shop_name" : shop_name,
+                            "now" : good_now,
+                            "size" : good_size,
+                            "color" : good_color,
+							"num" : 1
+						}
+					}
+					$.cookie('carts',JSON.stringify(cookie_obj),{expires : 7,path : '/'});
+                    console.log(cookie_obj);
+                    console.log(good_id);
+					//获取图片---飞
+					/* let $img = $(this).siblings('img').clone().css({width : 50,height : 50});
+					$img.fly({
+						start: {
+							left: event.pageX,
+							top: event.pageY
+						},
+						end: {
+							left: $buy.offset().left,
+							top: $buy.offset().top,
+							width: 0,
+							height: 0
+						},
+						onEnd: function(){
+							var num = parseInt(/(\d+)/.exec($buy.val())[1]);
+							$buy.val(`购物车(${++ num})`)
+						}
+					}); */
+				})
+			})
+
+
+			function init(){
+				//获取cookie
+				let cookie_str = $.cookie('carts') ? $.cookie('carts') : '';
+				//转对象
+				let cookie_obj = $toObj(cookie_str);
+				let sum = 0;
+				for(let i  in cookie_obj){
+					sum += cookie_obj[i].num;
+				}
+				$buy.val(`购物车(${sum})`)
+			}
+                </script>
             </div>
             <div class="deal-store">
                 <div class="store_wrapper">
