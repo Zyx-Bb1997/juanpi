@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="./css/public.min.css">
 
     <link rel="stylesheet" href="./css/login.min.css">
-    <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/jquery-1.12.4.min.min.js"></script>
+    <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/requestAnimationFrame.min.js"></script>
+    <script src="./js/public.min.js"></script>
+
 </head>
 <body>
     <div class="header header-login">
@@ -91,7 +93,7 @@
                                         <input type="hidden" value="02f617b60260382d84756a4a1d6a7a17" name="mtoken" id="mtoken">
                                         <input type="hidden" name="opt" id="opt" value>
                                         <input type="hidden" name="jumpTime" value="100" id="jumpTime">
-                                        <input type="submit" class="sub smt-o" value="登录" autocomplete="off">
+                                        <input type="submit" class="sub smt-o" id="sub" value="登录" autocomplete="off">
                                         <span id="loading"></span>
                                     </div>
                                 </li>
@@ -119,6 +121,24 @@
                         <img src="./images/login-bj-ad.png" alt="">
                     </div>
                 </div>
+                <script>
+                    $('#sub').click(function(){
+                        let uname = $('#account').val();
+                        let upwd = $('#inter_code').val();
+                        let cookie_str = $.cookie('users') ? $.cookie('users') : '';
+                        let cookie_obj = $toObj(cookie_str);
+                        if(uname in cookie_obj){
+                            if(upwd === cookie_obj[uname]){
+                                alert('登录成功');
+                                location.href = './index.html';
+                            }else{
+                                alert('密码错误！');
+                            }
+                        }else{
+                            alert('用户名不存在');
+                        }
+                    })
+                </script>
             </div>
             <p class="foot-tips">
                 武汉奇米网络科技有限公司 鄂ICP备10209250号 | ICP许可证号：鄂B2-20150109 | 

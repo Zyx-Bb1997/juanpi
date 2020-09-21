@@ -18,14 +18,14 @@
         <div class="tool-con">
             <div class="right-show fr">
                 <div class="login-show">
-                    <a href="">登录</a>
-                    <a id="nav-reg" href="">免费注册</a>
+                    <a href="./login.html">登录</a>
+                    <a id="nav-reg" href="register.html">免费注册</a>
                     &nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="">我的订单</a>
                     <a href="">商家入驻</a>
                 </div>
                 <div class="bag-show">
-                    <a href="" class="bar-a">
+                    <a href="cart.html" class="bar-a">
                     <span class="icon-normal icon-bag fl"></span>
                     <span class="empty fl">
                         <span class="fl">购物袋</span>
@@ -232,6 +232,8 @@
                 $(this).next().text(cookie_obj[id].num);
                 //修改合计
                 $(this).parent().next().text("￥" + cookie_obj[id].cprice * cookie_obj[id].num);
+                $(this).parents('.sc-bRbYWo').find('.sc-uJMKN').text("￥" + cookie_obj[id].cprice * cookie_obj[id].num);
+
             })
         })
         $('.plus').each(function(i,value){
@@ -251,6 +253,7 @@
                 //合计
                 //修改合计
                 $(this).parent().next().text("￥" + cookie_obj[id].cprice * cookie_obj[id].num);
+                $(this).parents('.sc-bRbYWo').find('.sc-uJMKN').text("￥" + cookie_obj[id].cprice * cookie_obj[id].num);
             })
         })
         //数量框

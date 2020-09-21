@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="./css/public.min.css">
     <link rel="stylesheet" href="./css/register.min.css">
     <link rel="stylesheet" href="./css/login.min.css">
-    <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/jquery-1.12.4.min.min.js"></script>
+    <script src="./js/jquery.cookie.min.js"></script>
     <script src="./js/requestAnimationFrame.min.js"></script>
+    <script src="./js/public.min.js"></script>
 </head>
 <body>
     <div class="header header-login">
@@ -45,7 +46,7 @@
                             <ul>
                                 <li class="error_box">
                                     <label class="normal">手机号码：</label>
-                                    <input type="text" class="normal-input" name="email" autocomplete="off" tabindex="1">
+                                    <input type="text" id="uname" class="normal-input" name="email" autocomplete="off" tabindex="1">
                                     <div class="error-box" id="email_warn" warn="请输入11位手机号">
                                         <strong class="ok"></strong>
                                         <p class="msg_error">请输入手机号</p>
@@ -79,7 +80,7 @@
                                         <input type="hidden" value="9702e79918b2ed2a77f98f8b73d41e5a" name="motken" id="motken">
                                         <input type="hidden" name="opt" id="opt" value="115">
                                         <input type="hidden" value="2" id="isMobile" name="isMobile">
-                                        <input type="submit" class="sub smt-o" value="立即注册" autocomplete="off">
+                                        <input type="submit" class="sub smt-o" value="立即注册" autocomplete="off" id="sub">
                                         <span id="loading"></span>
                                     </div>
                                 </li>
@@ -115,6 +116,37 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    $('#sub').click(function(){
+                        let uname = $('#uname').val();
+                        let upwd = $('#password').val();
+                        /*
+                            key :  users
+                            value : 
+                            '{
+                                uname : upwd，
+                                uname : upwd
+                            }'
+                        */
+                        //获取cookie
+                        let cookie_str = $.cookie('users') ? $.cookie('users') : '';
+                        //转对象
+                        let cookie_obj = $toObj(cookie_str);
+                        //判断用户是否存在 
+                        if(uname in cookie_obj){
+                            alert('用户已存在！');
+                            return;
+                        }
+                        //不存在，加入对象
+                        cookie_obj[uname] = upwd;
+                        //存入cookie
+                        $.cookie('users',JSON.stringify(cookie_obj),{expires : 7,path : '/'});
+                        alert('注册成功！');
+                    })
+                    $('#go').click(function(){
+                        location.href = 'login.html';
+                    })
+                </script>
             </div>
             <input type="hidden" name="screen_id" id="screen_id" value="1">
             <p class="foot-tips">
